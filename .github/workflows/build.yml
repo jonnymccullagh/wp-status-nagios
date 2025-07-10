@@ -17,9 +17,8 @@ jobs:
           go-version: '1.24.1'
 
       - name: Build Nagios Plugin
-        working-directory: integrations/nagios/check_wp_status
         run: |
-          GOOS=linux GOARCH=amd64 go build -o ../../../dist/check_wp_status
+          GOOS=linux GOARCH=amd64 go build -o ./dist/check_wp_status
 
       - name: Upload Nagios Plugin release
         uses: svenstaro/upload-release-action@v2

@@ -11,6 +11,17 @@ tasks:
   build:
     cmds:
     - go build -o dist/check_wp_status
+  bump-patch:
+    desc: Increment patch version in VERSION.txt
+    cmds:
+      - |
+        current_version=$(cat VERSION.txt)
+        mainpart=${current_version%.*}
+        patch=${current_version##*.}
+        next_patch=$((patch + 1))
+        new_version="${mainpart}.${next_patch}"
+        echo "$new_version" > VERSION.txt
+        echo "Bumped version: $new_version"
   tag:
     cmds:
     - git tag -a {{.VERSION}} -m "Release version {{.VERSION}}"
