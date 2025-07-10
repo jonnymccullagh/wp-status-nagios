@@ -1,6 +1,17 @@
 version: '3'
 
+vars:
+  VERSION:
+    sh: cat VERSION.txt | tr -d '\n'
+
 tasks:
+  print:
+    cmds:
+    - echo {{.VERSION}}
   build:
     cmds:
     - go build -o dist/check_wp_status
+  tag:
+    cmds:
+    - git tag -a {{.VERSION}} -m "Release version {{.VERSION}}"
+    - git push --tags
