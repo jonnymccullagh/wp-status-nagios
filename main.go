@@ -110,14 +110,14 @@ func main() {
 
 	// Performance data string
 	perfOutput := fmt.Sprintf("plugin_update_count=%d", wpStatus.PluginUpdateCount)
-	perfOutput += fmt.Sprintf(" theme_update_count=%d", wpStatus.ThemeUpdateCount)
-	perfOutput += fmt.Sprintf(" core_update_available=%t", wpStatus.CoreUpdateAvailable)
-	perfOutput += fmt.Sprintf(" theme_update_count=%d", wpStatus.UnapprovedComments)
-	perfOutput += fmt.Sprintf(" response_time_ms=%f", wpStatus.ResponseTimeMs)
-	perfOutput += fmt.Sprintf(" peak_script_memory_mb=%f", wpStatus.PeakScriptMemoryMb)
-	perfOutput += fmt.Sprintf(" wp_version=%s", wpStatus.WPVersion)
-	perfOutput += fmt.Sprintf(" php_version=%s", wpStatus.PHPVersion)
-	perfOutput += fmt.Sprintf(" db_query_count=%d", wpStatus.DBQueryCount)
+	perfOutput += fmt.Sprintf(";theme_update_count=%d", wpStatus.ThemeUpdateCount)
+	perfOutput += fmt.Sprintf(";core_update_available=%t", wpStatus.CoreUpdateAvailable)
+	perfOutput += fmt.Sprintf(";theme_update_count=%d", wpStatus.UnapprovedComments)
+	perfOutput += fmt.Sprintf(";response_time_ms=%f", wpStatus.ResponseTimeMs)
+	perfOutput += fmt.Sprintf(";peak_script_memory_mb=%f", wpStatus.PeakScriptMemoryMb)
+	perfOutput += fmt.Sprintf(";wp_version=%s", wpStatus.WPVersion)
+	perfOutput += fmt.Sprintf(";php_version=%s", wpStatus.PHPVersion)
+	perfOutput += fmt.Sprintf(";db_query_count=%d", wpStatus.DBQueryCount)
 
 	exitCode := 0
 	outputMessage := ""
