@@ -109,15 +109,15 @@ func main() {
 	}
 
 	// Performance data string
-	perfOutput := fmt.Sprintf("plugin_update_count=%d", wpStatus.PluginUpdateCount)
-	perfOutput += fmt.Sprintf(";theme_update_count=%d", wpStatus.ThemeUpdateCount)
-	perfOutput += fmt.Sprintf(";core_update_available=%t", wpStatus.CoreUpdateAvailable)
-	perfOutput += fmt.Sprintf(";theme_update_count=%d", wpStatus.UnapprovedComments)
-	perfOutput += fmt.Sprintf(";response_time_ms=%f", wpStatus.ResponseTimeMs)
-	perfOutput += fmt.Sprintf(";peak_script_memory_mb=%f", wpStatus.PeakScriptMemoryMb)
-	perfOutput += fmt.Sprintf(";wp_version=%s", wpStatus.WPVersion)
-	perfOutput += fmt.Sprintf(";php_version=%s", wpStatus.PHPVersion)
-	perfOutput += fmt.Sprintf(";db_query_count=%d", wpStatus.DBQueryCount)
+	perfOutput := fmt.Sprintf("plugin_update_count=%d;;;0; ", wpStatus.PluginUpdateCount)
+	perfOutput += fmt.Sprintf("theme_update_count=%d;;;0; ", wpStatus.ThemeUpdateCount)
+	perfOutput += fmt.Sprintf("core_update_available=%t;;;0; ", wpStatus.CoreUpdateAvailable)
+	perfOutput += fmt.Sprintf("theme_update_count=%d;;;0; ", wpStatus.UnapprovedComments)
+	perfOutput += fmt.Sprintf("response_time_ms=%f;;;0; ", wpStatus.ResponseTimeMs)
+	perfOutput += fmt.Sprintf("peak_script_memory_mb=%f;;;0; ", wpStatus.PeakScriptMemoryMb)
+	perfOutput += fmt.Sprintf("wp_version=%s;;;0; ", wpStatus.WPVersion)
+	perfOutput += fmt.Sprintf("php_version=%s;;;0; ", wpStatus.PHPVersion)
+	perfOutput += fmt.Sprintf("db_query_count=%d;;;0; ", wpStatus.DBQueryCount)										
 
 	exitCode := 0
 	outputMessage := ""
@@ -149,12 +149,12 @@ func main() {
 	// Final output
 	if exitCode == 0 {
 		fmt.Println("OK " + outputMessage + "| " + perfOutput)
-		os.Exit(0) // OK in Nagios
+		os.Exit(0)
 	} else if exitCode == 1 {
 		fmt.Println("WARNING " + outputMessage + "| " + perfOutput)
-		os.Exit(1) // Warning in Nagios
+		os.Exit(1)
 	} else {
 		fmt.Println("CRITICAL " + outputMessage + "| " + perfOutput)
-		os.Exit(2) // Critical in Nagios
+		os.Exit(2)
 	}
 }
