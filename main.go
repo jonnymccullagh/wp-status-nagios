@@ -111,12 +111,9 @@ func main() {
 	// Performance data string
 	perfOutput := fmt.Sprintf("plugin_update_count=%d;;;0; ", wpStatus.PluginUpdateCount)
 	perfOutput += fmt.Sprintf("theme_update_count=%d;;;0; ", wpStatus.ThemeUpdateCount)
-	perfOutput += fmt.Sprintf("core_update_available=%t;;;0; ", wpStatus.CoreUpdateAvailable)
-	perfOutput += fmt.Sprintf("theme_update_count=%d;;;0; ", wpStatus.UnapprovedComments)
+	perfOutput += fmt.Sprintf("unapproved_comments=%d;;;0; ", wpStatus.UnapprovedComments)
 	perfOutput += fmt.Sprintf("response_time_ms=%f;;;0; ", wpStatus.ResponseTimeMs)
 	perfOutput += fmt.Sprintf("peak_script_memory_mb=%f;;;0; ", wpStatus.PeakScriptMemoryMb)
-	perfOutput += fmt.Sprintf("wp_version=%s;;;0; ", wpStatus.WPVersion)
-	perfOutput += fmt.Sprintf("php_version=%s;;;0; ", wpStatus.PHPVersion)
 	perfOutput += fmt.Sprintf("db_query_count=%d;;;0; ", wpStatus.DBQueryCount)										
 
 	exitCode := 0
